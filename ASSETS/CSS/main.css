@@ -72,9 +72,9 @@ form {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    width: 400px;
+    width: 500px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 580px;
 }
 
 .back-button a{
@@ -185,6 +185,7 @@ input{
     font-size: 13px;
     border-radius: 8px;
     width: 80%;
+    border: solid 2px #00000000;
 }
 
 fieldset h5:nth-last-child(2){
@@ -196,7 +197,7 @@ fieldset h5:nth-last-child(2):hover{
 }
 
 
-fieldset input[type="submit"]{
+#yoinkButton{
     background-color: var(--color-accent);
     color: var(--color-text);
     font-size: 14px;
@@ -210,6 +211,7 @@ fieldset input[type="submit"]{
     cursor: pointer;
     width: 50%;
     transition: 300ms ease-in-out;
+    user-select: none;
     
 }
 fieldset input[type="submit"]:hover{
@@ -218,10 +220,27 @@ fieldset input[type="submit"]:hover{
     filter: drop-shadow(0px 0px 4px var(--color-accent));
     animation-name: clickmeplease;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
 }
 @keyframes clickmeplease {
     0% {transform: translateY(0px);}
     50% {transform: translateY(-2px);}
     100% {transform: translateY(0px);}
+}
+
+.warning{
+animation-name: warning;
+animation-duration: 0.27542069s;
+animation-iteration-count: 1;
+animation-timing-function: ease-in-out;
+}
+
+@keyframes warning {
+    0% {transform: translateX(0px);}
+    20% {transform: translateX(-5px);}
+    40% {transform: translateX(5px);}
+    60% {transform: translateX(-5px);}
+    80% {transform: translateX(5px);}
+    100% {transform: translateX(0px);}
+
 }
