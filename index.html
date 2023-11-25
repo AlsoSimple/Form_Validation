@@ -18,7 +18,7 @@
 <body onload="init()">
     <div>
         
-        <form action="front.html">
+        <form novalidate action="#">
             <div class="back-button">
                 <a href="front.html"><i class="fa-solid fa-arrow-left"></i></a>
             </div>
@@ -39,13 +39,14 @@
             <fieldset>
                 <h5>or enter your email and password to continue</h5>
                 <!-- <input type="text" placeholder="Name"> -->
-                <input type="name" placeholder="First name" required>
-                <input type="name" placeholder="Last name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="number" placeholder="Zip-code" required>
-                <input type="password" placeholder="Password" required>
+                <input type="name" id="firstName" class="inputField"  placeholder="First name">
+                <input type="name" id="lastName" class="inputField" placeholder="Last name">
+                <input type="email" id="email" class="inputField" placeholder="Email">
+                <input type="number" id="zipCode" class="inputField" placeholder="Zip-code">
+                <input type="password" id="password" class="inputField" placeholder="Password">
+                <h4>Your face is all wrong</h4>
                 <!-- <h5>forgot your password?</h5> -->
-                <input type="submit" value="Submit" >
+                <button id="yoinkButton">SUBMIT</button>
             </fieldset>
         </form>
     </div>
