@@ -4,33 +4,80 @@ const inputFields = document.getElementsByClassName("inputField")
 //Convert the HTMLCollection into an array
 var inputFieldsArray = [].slice.call(inputFields);
 
+const openModalButton = document.getElementById("modalButton")
+const modal = document.getElementById("myModal")
+
+function toggleModal (action) {
+    console.log("Har blitt trykket på: ", action)
+    if(action === "open"){
+        modal.style.display = "flex";
+        modal.style.opacity = "1";
+    } else if (action === "close"){
+        modal.style.display = "none";
+        modal.style.opacity = "0";
+    }
+}
+
+const backButton = document.getElementsByClassName("back-button")[0]
+
+backButton.addEventListener("click", () => {
+    toggleModal("close")
+})
+
+
+openModalButton.onclick = () => toggleModal("open");
+
+console.log(inputFieldsArray)
 
 //Get the button from form
 const button = document.getElementById("yoinkButton")
 
 //Add eventlistener to form, runs on event type click
- //Spit out the entire array, one element at a time
+//Spit out the entire array, one element at a time
 //Run validateInput with every single element
 button.addEventListener("click", (e) => {
+    e.preventDefault();
+    let formIsValid = true
     inputFieldsArray.map((inputField) => {
         switch (inputField.type) {
             case "text":
-                validateInput(inputField)
+                if(formIsValid){
+                    formIsValid = validateInput(inputField)
+                } else {
+                    validateInput(inputField)
+                }
                 break;
     
             case "email":
-                validateInput(inputField)
+                if(formIsValid){
+                    formIsValid = validateInput(inputField)
+                } else {
+                    validateInput(inputField)
+                }
                 break;
     
             case "number":
-                validateInput(inputField)
+                if(formIsValid){
+                    formIsValid = validateInput(inputField)
+                } else {
+                    validateInput(inputField)
+                }
                 break;
     
             case "password":
-                validateInput(inputField)
+                if(formIsValid){
+                    formIsValid = validateInput(inputField)
+                } else {
+                    validateInput(inputField)
+                }
                 break;
         }
     })
+    if(formIsValid){
+        toggleModal("close")
+    } else {
+        console.log("Form is not valid")
+    }
 })
 
 //This function receives inputfield as a parameter
@@ -56,10 +103,12 @@ function validateInput(inputField){
             inputField.classList.add("warning");
         }, 0.25742069);  
         inputField.classList.remove("warning");
+        return false
     } else {
         inputField.style.border = "solid 2px #00000000";
         inputField.style.boxShadow = "none"
         inputField.classList.remove("warning");
+        return true
     }
 }
 

@@ -77,6 +77,19 @@ form {
     min-height: 580px;
 }
 
+#megaDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-color: #6cdbe8;
+    width: 500px;
+    max-width: 100%;
+    min-height: 580px;
+}
+
 .back-button a{
     text-decoration: none;
     position: absolute;
@@ -226,6 +239,22 @@ fieldset input[type="submit"]:hover{
     0% {transform: translateY(0px);}
     50% {transform: translateY(-2px);}
     100% {transform: translateY(0px);}
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 300ms ease-in-out;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
 }
 
 .warning{
